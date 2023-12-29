@@ -131,7 +131,7 @@ console.log("")
 console.log("-------------------------")
 const fs9 = require("fs")
 if(!fs9.existsSync("./03/text.txt")) console.log("파일이 없습니다.")
-else fs.unlink("./03/text.txt", () => console.log("파일을 삭제했습니다."))
+else fs9.unlink("./03/text.txt", () => console.log("파일을 삭제했습니다."))
 console.log("-------------------------")
 
 console.log("")

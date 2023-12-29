@@ -1,4 +1,6 @@
 const user1 = "Jun"
 const user2 = "Lim"
 const user3 = "Kim"
-export default {user1,user2,user3}
+// module.exports = user1
+module.exports = {user1,user2,user3}
+// export default {user1,user2,user3}
