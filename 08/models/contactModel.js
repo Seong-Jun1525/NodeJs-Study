@@ -18,6 +18,6 @@ const contactSchema = new mongoose.Schema(
     }
 ) // 몽고DB의 컬렉션에 저장할 데이터 구조와 유효성 검사규칙을 지정
 
-// const Contact = mongoose.model("Contact", contactSchema)
-// module.exports = Contact
-module.exports = mongoose.model("Contact", contactSchema)
+const Contact = mongoose.model("Contact", contactSchema)
+module.exports = Contact
+// module.exports = mongoose.model("Contact", contactSchema)
