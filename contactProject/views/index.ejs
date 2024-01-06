@@ -1,0 +1,37 @@
+<%- include("./include/_header") %>
+    <!-- Main -->
+    <main>
+        <div class="container">
+            <div class="btnDiv">
+                <button type="button" class="btn btn-primary"><i class="fa-solid fa-user-plus"></i> 연락처 추가하기</button>
+            </div>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                      <th scope="col">Name</th>
+                      <th scope="col">Email</th>
+                      <th scope="col">Phone</th>
+                      <th scope="col"> </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% contacts.forEach(contact => { %>
+                        <tr>
+                            <td><%= contact.name %></td>
+                            <td><%= contact.email %></td>
+                            <td><%= contact.phone %></td>
+                            <td>
+                              <a href="#" class="btn update">
+                                  <i class="fa-solid fa-pencil"></i>
+                              </a>
+                              <a href="#" class="btn delete">
+                                  <i class="fa-solid fa-xmark"></i>
+                              </a>
+                            </td>
+                        </tr>
+                    <% }); %>
+                </tbody>
+            </table>
+        </div>
+    </main>
+<%- include("./include/_footer") %>
