@@ -5,18 +5,25 @@ const {
     createContact,
     getContact,
     updateContact,
-    deleteContact
+    deleteContact,
+    addContactForm,
+    confirmContact
 } = require("../controllers/contactController")
 
 router
     .route("/")
     .get(getAllContacts)
-    .post(createContact)
-
 router
-    .route("/:id")
+    .route("/add")
+    .get(addContactForm)
+    .post(createContact)
+router
+    .route("/update/:id")
     .get(getContact)
     .put(updateContact)
+router
+    .route("/delete/:id")
+    .get(confirmContact)
     .delete(deleteContact)
 
 module.exports = router

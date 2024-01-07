@@ -3,7 +3,7 @@
     <main>
         <div class="container">
             <div class="btnDiv">
-                <button type="button" class="btn btn-primary"><i class="fa-solid fa-user-plus"></i> 연락처 추가하기</button>
+                <a href="/contacts/add" class="btn btn-primary"><i class="fa-solid fa-user-plus"></i> 연락처 추가하기</a>
             </div>
             <table class="table table-hover">
                 <thead>
@@ -21,12 +21,18 @@
                             <td><%= contact.email %></td>
                             <td><%= contact.phone %></td>
                             <td>
-                              <a href="#" class="btn update">
-                                  <i class="fa-solid fa-pencil"></i>
-                              </a>
-                              <a href="#" class="btn delete">
-                                  <i class="fa-solid fa-xmark"></i>
-                              </a>
+                                <!-- 몽고디비에서 사용자가 만든 id값과 구분하려고 자동으로 만들어진 id속성에 _ 혹은 __를 붙인다 -->
+                                <a href="/contacts/update/<%= contact._id %>" class="btn update">
+                                    <i class="fa-solid fa-pencil"></i>
+                                </a>
+                                <!-- <form action="/contacts/<%= contact._id %>?_method=delete" method="post" style="display: inline-block;">
+                                    <input type="submit" class="btn delete" title="삭제" value="X">
+                                </form>  -->
+                            
+                                <a href="/contacts/delete/<%= contact._id %>" class="btn delete">
+                                    <i class="fa-solid fa-xmark"></i>
+                                </a> 
+                            
                             </td>
                         </tr>
                     <% }); %>

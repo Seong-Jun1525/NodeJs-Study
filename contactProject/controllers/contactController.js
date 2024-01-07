@@ -1,6 +1,6 @@
 const asyncHandler = require("express-async-handler") // npm install express-async-handler
 const Contact = require("../models/contactModel") // DB모델 연결
-const path = require("path")
+// const path = require("path")
 // @desc 함수설명
 // @route 요청방식과 URL
 
@@ -32,6 +32,12 @@ const getAllContacts = asyncHandler(async (req, res) => { // 비동기 처리
     res.render("index", {contacts: contacts})
 })
 
+// @desc View add contact form
+// @route GET /contacts/add
+const addContactForm = (req, res) => {
+    res.render("add")
+}
+
 // @desc Create a contact
 // @route POST /contacts
 const createContact = asyncHandler(async (req, res) => {
@@ -41,15 +47,16 @@ const createContact = asyncHandler(async (req, res) => {
         return res.status(400).send("필수 값이 입력되지 않았습니다.")
     }
     const contact = await Contact.create({name, email, phone})
-    res.status(201).send("Create Contacts")
+    // res.status(201).send("Create Contacts")
+    res.redirect("/contacts")
 })
 
 // @desc Get a contact
 // @route Get /contacts/:id
 const getContact = asyncHandler(async (req, res) => {
-    const name = req.params.id
-    const contact = await Contact.findOne({name: name})
-    res.status(200).send(contact.name)
+    const contact = await Contact.findById(req.params.id)
+    // res.status(200).send(contact.name)
+    res.render("update", {contact: contact})
 })
 
 // @desc Update a contact
@@ -78,7 +85,8 @@ const updateContact = asyncHandler(async (req, res) => {
         {name, email, phone},
         {new: true}
     )
-    res.status(200).send(updateContact)
+    // res.status(200).send(updateContact)
+    res.redirect("/contacts")
 })
 
 // @desc Delete a contact
@@ -94,8 +102,17 @@ const deleteContact = asyncHandler(async (req, res) => {
     // res.status(200).send(`Delete Contact for ID : ${req.params.id}`)
 
     const id = req.params.id
-    const contact = await Contact.findByIdAndDelete(id)
-    res.status(200).send(contact)
+    // const contact = await Contact.findByIdAndDelete(id)
+    // const contact = await Contact.findById(id)
+    await Contact.findByIdAndDelete(id)
+    // res.status(200).send(contact)
+    res.redirect("/contacts")
+    // res.render("delete", {contact: contact})
 })
 
-module.exports = {getAllContacts, createContact, getContact, updateContact, deleteContact}
+const confirmContact = asyncHandler(async (req, res) => {
+    const contact = await Contact.findById(req.params.id)
+    res.render("delete", {contact: contact})
+})
+
+module.exports = {getAllContacts, createContact, getContact, updateContact, deleteContact, addContactForm, confirmContact}

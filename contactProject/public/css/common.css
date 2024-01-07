@@ -12,13 +12,24 @@ ul {
 li {
     margin-bottom: 15px;
 }
-.container {
-    margin: 0 auto;
-    padding-top: 30px;
+
+.btn {
+    padding: 12px;
 }
 
-main {
-    height: 647px;
+fieldset {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+legend {
+    font-size: 20px;
+}
+
+input {
+    width: 100%;
+    font-size: 20px;
+    padding: 5px;
 }
 
 footer {
@@ -28,4 +39,15 @@ footer {
     justify-content: center;
     background: #aaa;
     height: 200px;
+    margin-top: 100px;
+}
+
+.container {
+    margin: 0 auto;
+    padding-top: 30px;
+}
+
+.formContainer {
+    width: 500px;
+    margin: 0 auto;
 }

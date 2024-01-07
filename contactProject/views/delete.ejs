@@ -1,0 +1,14 @@
+<%- include("./include/_header") %>
+<main>
+    <div class="container">
+        <form  action="/contacts/delete/<%= contact._id %>?_method=delete" method="post" class="userFrom">
+            <fieldset>
+                <legend>Name</legend>
+                <input type="text" value="<%= contact.name %>" disabled>
+            </fieldset>
+            <button type="submit" class="btn btn-danger conBtn">삭제하기</button>
+            <a href="/contacts" class="btn btn-primary conBtn">뒤로가기</a>
+        </form>
+    </div>
+</main>
+<%- include("./include/_footer") %>
