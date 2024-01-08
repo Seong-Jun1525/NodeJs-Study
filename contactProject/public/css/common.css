@@ -42,12 +42,30 @@ footer {
     margin-top: 100px;
 }
 
-.container {
+.loginInput {
+    border: 0;
+    border-bottom: 1px solid #ccc;
+    border-radius: 0;
+}
+
+.container,
+.formContainer,
+.authContainer {
     margin: 0 auto;
+}
+
+.container {
     padding-top: 30px;
 }
 
 .formContainer {
     width: 500px;
-    margin: 0 auto;
+}
+
+.authContainer {
+    width: 1000px;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 }

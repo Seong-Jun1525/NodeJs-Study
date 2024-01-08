@@ -1,0 +1,18 @@
+<%- include("./include/_header") %>
+<main>
+    <div class="container">
+        <form action="/" method="post" class="userForm">
+            <div class="authContainer">
+                <h2>로그인</h2>
+                <div class="mb-3">
+                    <input type="text" class="loginInput form-control" id="userId" name="userId" placeholder="사용자 아이디">
+                </div>
+                <div class="mb-3">
+                    <input type="password" class="loginInput form-control" id="userPw" name="userPw" placeholder="비밀번호">
+                </div>
+                <button type="submit" class="btn btn-primary">로그인</button>
+            </div>
+          </form>
+    </div>
+</main>
+<%- include("./include/_footer") %>

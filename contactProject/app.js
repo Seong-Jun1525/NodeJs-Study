@@ -18,6 +18,7 @@ dbConnect()
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 
+app.use("/", require("./routes/loginRoutes")) // router 등록
 app.use("/contacts", require("./routes/contactRoutes")) // router 등록
 
 app.listen(port, () => {
