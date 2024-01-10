@@ -13,6 +13,18 @@ li {
     margin-bottom: 15px;
 }
 
+.login-box {
+    background: #ccc;
+    font-size: 20px;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
 .btn {
     padding: 12px;
 }

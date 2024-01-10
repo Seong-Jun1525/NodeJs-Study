@@ -4,13 +4,17 @@ const {
     getRegister,
     registerUser,
     getLogin,
-    loginUser
+    loginUser,
+    logout
 } = require("../controllers/loginController")
 
 router
     .route("/")
     .get(getLogin)
     .post(loginUser)
+router
+    .route("/logout")
+    .get(logout)
 router
     .route("/register")
     .get(getRegister)

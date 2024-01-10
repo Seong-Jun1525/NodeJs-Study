@@ -1,4 +1,6 @@
 const express = require("express")
+const cookieParser = require("cookie-parser")
+const checkLogin = require("../middlewares/checkLogin")
 const router = express.Router() // router 객체 인스턴스 생성
 const {
     getAllContacts,
@@ -10,20 +12,22 @@ const {
     confirmContact
 } = require("../controllers/contactController")
 
+router.use(cookieParser())
+
 router
     .route("/")
-    .get(getAllContacts)
+    .get(checkLogin, getAllContacts)
 router
     .route("/add")
-    .get(addContactForm)
-    .post(createContact)
+    .get(checkLogin, addContactForm)
+    .post(checkLogin, createContact)
 router
     .route("/update/:id")
-    .get(getContact)
-    .put(updateContact)
+    .get(checkLogin, getContact)
+    .put(checkLogin, updateContact)
 router
     .route("/delete/:id")
-    .get(confirmContact)
-    .delete(deleteContact)
+    .get(checkLogin, confirmContact)
+    .delete(checkLogin, deleteContact)
 
 module.exports = router

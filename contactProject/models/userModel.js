@@ -1,16 +1,16 @@
 const mongoose = require("mongoose")
-const adminSchema = new mongoose.Schema(
+const userSchema = new mongoose.Schema(
     {
-        adminId: {
+        userId: {
             type: String,
             required: true,
             unique: true
         },
-        adminPw: {
+        userPw: {
             type: String,
             required: true
         }
     }
 )
 
-module.exports = mongoose.model("Admin", adminSchema)
+module.exports = mongoose.model("User", userSchema)
