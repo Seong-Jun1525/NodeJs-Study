@@ -8,7 +8,7 @@ router.get(["/", "/home"], asynchandler(async (req, res) => {
         const locals = {
             title: "Home",
         }
-        const data = await Post.find({}) // 데이터베이스에 있는 데이터 모두 가져오기
+        const data = await Post.find({}).sort({updatedAt: "desc", createAt:"desc"}) // 데이터베이스에 있는 데이터 모두 가져오기
 
         // index.ejs를 렌더링 하는데 mainLayout 레이아웃으로 감싸기
         res.render("index", {locals, data, layout: mainLayout})
